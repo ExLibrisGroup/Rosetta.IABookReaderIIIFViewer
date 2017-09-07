@@ -4,7 +4,7 @@ Note: Version 5.30 is required.
 
 To install the player, please follow these steps: 
 
-Clone the viewer repository from https://github.com/ExLibrisGroup/rosetta.IIIFBookReaderViewer.
+Clone the viewer repository.
 
 In the viewer package, open /web/conf/viewer.properties and replace the 'wsdlLocation' and 'deliveryServerUrl' properties hostname and port with your application server hostname and port. 
 
