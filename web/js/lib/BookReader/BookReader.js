@@ -1039,6 +1039,8 @@ BookReader.prototype.resizePageView1up = function() {
 
         // Make sure this will count as current page after resize
         // console.log('fudging for index ' + this.currentIndex() + ' (page ' + this.getPageNum(this.currentIndex()) + ')');
+    	if (this.currentIndex() == -1)
+    		this.setCurrentIndex(0);
         var fudgeFactor = (this.getPageHeight(this.currentIndex()) / this.reduce) * 0.6;
         var oldLeafTop = this.onePageGetPageTop(this.currentIndex()) + fudgeFactor;
         var oldViewDimensions = this.onePageCalculateViewDimensions(this.reduce, this.padding);
@@ -3622,11 +3624,12 @@ BookReader.prototype.initToolbar = function(mode, ui) {
     $("#BookReader").append(
           "<div id='BRtoolbar'>"
         +   "<span id='BRtoolbarbuttons'>"
+//      +     "<form action='javascript:br.search($(\"#textSrch\").val());' id='booksearch'><input type='search' id='textSrch' name='textSrch' val='' placeholder='Search inside'/><button type='submit' id='btnSrch' name='btnSrch'>GO</button></form>"
         +     "<button class='BRicon play'></button>"
         +     "<button class='BRicon pause'></button>"
-        +     "<button class='BRicon info'></button>"
-        +     "<button class='BRicon share'></button>"
-        +     readIcon
+//      +     "<button class='BRicon info'></button>"
+//      +     "<button class='BRicon share'></button>"
+//        +     readIcon
         //+     "<button class='BRicon full'></button>"
         +   "</span>"
         +   "<span id='BRreturn'><a style='padding-left:10px;'></a></span>"
@@ -3652,7 +3655,7 @@ BookReader.prototype.initToolbar = function(mode, ui) {
        $('#BRtoolbarbuttons .share').hide();
     }
 
-    $('#BRreturn a').attr('href', this.bookUrl).text(this.bookTitle);
+//    $('#BRreturn a').attr('href', this.bookUrl).text(this.bookTitle);
 
     $('#BRtoolbar .BRnavCntl').addClass('BRup');
     $('#BRtoolbar .pause').hide();
